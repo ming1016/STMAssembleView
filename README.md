@@ -12,7 +12,7 @@
 PartView决定自己视图类型，内容，无固定大小的可以设置大小，同时AssembleView可以作为PartView被加入另一个AssembleView里进行排列，这样各种设计图都可以在初期通过拆解分成不同的AssembleView和PartView进行组合套组合布局出来。
 
 # 格式化语言
-接下来是如何通过格式化语言来描述AssembleView和PartView。“{}”符号里包含的是AssembleView的设置，“[]”符号里是PartView的设置，“()”里是他们的属性设置，“<>”可以将对象带入到设置里。下面举几个例子说明下。
+接下来是如何通过格式化语言来描述AssembleView和PartView。“{}”符号里包含的是AssembleView的设置，“[]”符号里是PartView的设置，“()”里是他们的属性设置，“<>”可以将对象带入到设置里。下面举几个例子说明下。完整Demo放到了Github上：<https://github.com/ming1016/STMAssembleView>
 
 ## 三个星星水平对齐居中排列
 h表示水平排列horizontal，c表示居中center，“[]”PartView会根据顺序依次添加排列，imageName属性能够指定本地图片
@@ -136,7 +136,7 @@ ASS(@"{
 
 第三步将各个类别集合转换成对应原生代码从而生成对应的视图布局。
 
-具体实现可以查看STMAssembleView.m文件
+具体实现可以查看STMAssembleView.m文件。Github地址：<https://github.com/ming1016/STMAssembleView>
 
 # 如何生成页面
 生成页面需要实现格式化语言对应的原生代码，所有PartView的属性都会存放在STMPartMaker里，包括带入的自定义视图还有用于生成视图控件的属性等。PartView属性设置完成后会在STMPartView这个类中先决定对应的视图控件，并将STMPartMaker里的属性都设置上。实现代码可以查看STMPartView.m里的- (STMPartView *)buildPartView方法。
