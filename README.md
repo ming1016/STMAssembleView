@@ -29,7 +29,7 @@ h表示水平排列horizontal，c表示居中center，“[]”PartView会根据�
 
 ## AssembleView里套作为PartView的AssembleView的复杂情况
 color可以指定文字颜色，font指定文字大小
-(https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/mid.png?raw=true
+![AssembleView里套作为PartView的AssembleView的复杂情况](https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/mid.png?raw=true
 )
 ```
 {
@@ -49,7 +49,7 @@ color可以指定文字颜色，font指定文字大小
 
 ## 给PartView设置背景色和按钮
 设置背景色使用backColor，背景距离设置的PartView的内容间距通过backPaddingHorizontal属性设置水平间距，backPaddingVertical设置垂直间距，“<>”符号带入的button通过button属性设置。
-(https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/followBt.png?raw=true
+![给PartView设置背景色和按钮](https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/followBt.png?raw=true
 )
 ```
 [
@@ -64,7 +64,7 @@ color可以指定文字颜色，font指定文字大小
 
 ## AssembleView设置忽略约束的方法
 水平排列时，通过ignoreAlignment属性设置忽略left约束，如果是垂直排列设置top忽略。
-(https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/des.png?raw=true
+![AssembleView设置忽略约束的方法](https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/des.png?raw=true
 )
 ```
 {
@@ -76,7 +76,7 @@ color可以指定文字颜色，font指定文字大小
 ```
 
 ## 将前面的视图组合成一个AssembleView
-(https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/as.png?raw=true
+![将前面的视图组合成一个AssembleView](https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/as.png?raw=true
 )
 ```
 ASS(@"{
