@@ -16,7 +16,7 @@ PartView决定自己视图类型，内容，无固定大小的可以设置大小
 
 ## 三个星星水平对齐居中排列
 h表示水平排列horizontal，c表示居中center，“[]”PartView会根据顺序依次添加排列，imageName属性能够指定本地图片
-!(https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/center.png?raw=true
+![三个星星水平对齐居中排列](https://github.com/ming1016/STMAssembleView/blob/master/STMAssembleView/center.png?raw=true
 )
 ```
 {
