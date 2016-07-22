@@ -206,17 +206,19 @@
     NSScanner *scanner = [NSScanner scannerWithString:string];
     scanner.charactersToBeSkipped = [NSCharacterSet whitespaceAndNewlineCharacterSet]; //跳过换行和空格
     NSMutableArray *tokens = [NSMutableArray array];
+    NSMutableCharacterSet *mCSet = [NSMutableCharacterSet alphanumericCharacterSet];
+    [mCSet addCharactersInString:@"./|?!$%#-+_&：“”。，《》！"];
+    //下一步需要做个特殊字符串映射对应关系，比如说属性的值里需要“:”这个符号和关键符号冲突了就需要通过映射表来处理
     while (!scanner.isAtEnd) {
         for (NSString *operator in @[@"(",@")",@":",@",",@"[",@"]",@"{",@"}",@"<",@">"]) {
             if ([scanner scanString:operator intoString:NULL]) {
                 [tokens addObject:operator];
             }
             NSString *result = nil;
-            if ([scanner scanCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:&result]) {
+            if ([scanner scanCharactersFromSet:mCSet intoString:&result]) {
                 [tokens addObject:result];
             }
         }
-        
     }
     
     

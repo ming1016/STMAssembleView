@@ -36,7 +36,7 @@
     //按钮
     NSString *followBtStr = @"{hc(padding:4)[(imageName:starmingicon,width:14,height:10)][(text:关注,font:16,color:FFFFFF)]}";
     //说明区域
-    NSString *desStr = @"{hc(padding:5)[(text:STMAssembleView演示,color:E3DEE0,font:13)][(imageName:starmingicon,width:14,height:10,ignoreAlignment:left)][(text:Starming星光社,color:E3DEE0,font:13)]}";
+    NSString *desStr = @"{hc(padding:5.5)[(text:STMAssembleView.演示,color:E3DEE0,font:13)][(imageName:starmingicon,width:14,height:10,ignoreAlignment:left)][(text:www.starming.com星光社,color:E3DEE0,font:13)]}";
     //整体组装
     NSString *asStr = ASS(@"{vc(padding:20)[%@(height:90)][%@(height:36,backColor:AAA0A3,radius:8,backBorderWidth:1,backBorderColor:E3DEE0,backPaddingHorizontal:80,backPaddingVertical:10,button:<clickBt>)][%@(height:25)][%@(ignoreAlignment:top,isFill:1,height:16)]}",midStr,followBtStr,centerStr,desStr);
     
