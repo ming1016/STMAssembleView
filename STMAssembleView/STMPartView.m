@@ -50,9 +50,14 @@
     }
     
     //处理有背景的情况
-    if (self.maker.backColor) {
+    if (self.maker.backColor || self.maker.backPaddingVertical || self.maker.backPaddingHorizontal) {
         UIView *backView = [[UIView alloc] init];
-        backView.backgroundColor = self.maker.backColor;
+        if (self.maker.backColor) {
+            backView.backgroundColor = self.maker.backColor;
+        } else {
+            backView.backgroundColor = [UIColor clearColor];
+        }
+        
         UIView *oView = self.maker.view;
         CGFloat paddingV = self.maker.backPaddingVertical;
         CGFloat paddingH = self.maker.backPaddingHorizontal;

@@ -92,7 +92,7 @@
                     }
                 }
                 //间隔Padding的设置
-                if (partView.maker.padding > 0) {
+                if (partView.maker.padding != 0) {
                     xViewPadding = partView.maker.padding;
                 }
             }
