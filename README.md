@@ -1,5 +1,3 @@
-# 制作一个类似苹果VFL(Visual Format Language)的格式化语言来描述类似UIStackView那种布局思路，并解析生成页面
-
 在项目中总是希望页面上各处的文字，颜色，字体大小甚至各个视图控件布局都能够在发版之后能够修改以弥补一些前期考虑不周，或者根据统计数据能够随时进行调整，当然是各个版本都能够统一变化。看到这样的要求后，第一反应是这样的页面只能改成H5，或者尝试使用React Native来应对这种要求。
 
 既然UIStackView已经提供了一种既先进又简洁的布局思路，为何不通过制作一个类似VFL这样的DSL语言来处理布局。这样不就能够通过下发一串DSL字符串的方式来进行内容样式甚至布局的更换，不用跟版，还能使多版本统一。同时在端内直接用这样的DSL语言来写界面不光能够减少代码量易于维护，还能够很直观方便的看出整个界面布局结构。
@@ -92,6 +90,7 @@ ASS(@"{
 * 当在“{}”里面第一个字母是v表示垂直排列vertical，是h表示水平排列horizontal
 * 第二个字母是c表示所有PartView居中对齐center，l表示居左对齐left，r表示居右对齐right，t表示居上对齐top，b表示居下对齐bottom。
 * padding：默认各个PartView的间距。
+* extendWithEqualTo：由第几个PartView来撑开AssembleView的大小。
 
 ## PartView的属性
 如果不希望通过属性生成视图，可以通过在[后直接填入带入对象对应的key，然后再在()里设置属性。
@@ -102,6 +101,7 @@ ASS(@"{
 * isFill：垂直排列时会将宽设置为父AssembleView的宽，水平排列时会将高设置为父AssembleView的高。
 * padding：设置后会忽略父AssembleView里设置的padding，达到自定义间距的效果。
 * partAlignment：可以自定义对齐方向，设置后会忽略父AssembleView里设置的对齐。值可填center，left，right，top，bottom。
+* alignmentMargin：对齐方向和assembleView的间距
 * ignoreAlignment：设置忽略的约束方向，在父AssembleView不需要由子PartView决定大小的情况下，可以通过打断某个方向约束来实现拆开排列的效果。值可填center，left，right，top，bottom。
 
 ### PartView权重相关属性
