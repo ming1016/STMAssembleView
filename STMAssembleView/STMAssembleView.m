@@ -134,6 +134,11 @@
                         make.bottom.equalTo(self);
                     }
                 }
+                //由内部撑大AssembleView
+                if (assembleMaker.extendWith == i + 1) {
+                    make.top.equalTo(self);
+                    make.bottom.equalTo(self);
+                }
                 
                 if (partView.maker.ignoreAlignment == STMPartAlignmentLeft) {
                     //如果设置忽略左约束就不设置左约束
@@ -176,6 +181,11 @@
                     } else if (assembleMaker.alignment == STMAssembleAlignmentRight) {
                         make.right.equalTo(self);
                     }
+                }
+                //由内部撑大AssembleView
+                if (assembleMaker.extendWith == i + 1) {
+                    make.left.equalTo(self);
+                    make.right.equalTo(self);
                 }
                 
                 make.right.lessThanOrEqualTo(self);
@@ -329,6 +339,9 @@
             if ([key isEqualToString:@"padding"]) {
                 make.paddingEqualTo([keyValueProperty[key] floatValue]);
             }
+            if ([key isEqualToString:@"extendWith"]) {
+                make.extendWithEqualTo([keyValueProperty[key] floatValue]);
+            }
         }
         
         //part view解析
@@ -461,6 +474,9 @@
                     if ([dic[key] isEqualToString:@"bottom"]) {
                         make.ignoreAlignmentEqualTo(STMPartAlignmentBottom);
                     }
+                }
+                if ([key isEqualToString:@"alignmentMargin"]) {
+                    make.alignmentMarginEqualTo([dic[key] floatValue]);
                 }
                 //设置权重
                 if ([key isEqualToString:@"crp"]) {

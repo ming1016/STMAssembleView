@@ -48,6 +48,12 @@
         return self;
     };
 }
+- (STMAssembleMaker *(^)(NSUInteger))extendWithEqualTo {
+    return ^STMAssembleMaker *(NSUInteger num) {
+        self.extendWith = num;
+        return self;
+    };
+}
 
 
 #pragma mark - Getter
