@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, STMAssembleArrange) {
     STMAssembleArrangeVertical
 };
 
+typedef void(^ParsingFormatStringCompleteBlock)(STMAssembleView *);
+
 @interface STMAssembleMaker : NSObject
 //属性
 @property (nonatomic, strong) NSMutableArray *subViews; //存放所有子视图
@@ -30,6 +32,8 @@ typedef NS_ENUM(NSUInteger, STMAssembleArrange) {
 @property (nonatomic) STMAssembleAlignment alignment;   //对齐
 @property (nonatomic) STMAssembleArrange arrange;       //水平还是垂直排列
 @property (nonatomic) NSUInteger extendWith;            //由第几个PartView来撑开AssembleView的大小
+@property (nonatomic, copy) ParsingFormatStringCompleteBlock parsingCompletion;
+
 
 //方法
 - (STMAssembleMaker *(^)(STMAssembleView *))addAssembleView;

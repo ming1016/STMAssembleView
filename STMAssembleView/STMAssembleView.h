@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class STMAssembleMaker;
+#import "STMAssembleMaker.h"
+//@class STMAssembleMaker;
 @class STMPartView;
 
 @interface STMAssembleView : UIView
@@ -19,6 +19,7 @@
 
 //使用格式化字符串创建AssembleView
 + (STMAssembleView *)fs:(NSString *)string objects:(NSDictionary *)objs;
++ (void)fsAsync:(NSString *)string objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock;
 
 //简化NSString的format
 FOUNDATION_EXPORT NSString *ASS(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);

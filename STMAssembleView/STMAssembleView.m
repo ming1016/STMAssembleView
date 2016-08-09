@@ -7,7 +7,7 @@
 //
 
 #import "STMAssembleView.h"
-#import "STMAssembleMaker.h"
+
 #import "Masonry.h"
 #import "STMPartView.h"
 #import <objc/message.h>
@@ -207,11 +207,27 @@
         lastView = xView;
         i++;
     }
+    if (assembleMaker.parsingCompletion) {
+//        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(),^{
+            assembleMaker.parsingCompletion(self);
+        });
+    }
     return self;
 }
 
 /*-------------格式化字符串创建Part View----------------*/
 + (STMAssembleView *)fs:(NSString *)string objects:(NSDictionary *)objs {
+    return [STMAssembleView createViewWithFormatString:string objects:objs completion:nil];
+}
+
++ (void)fsAsync:(NSString *)string objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [STMAssembleView createViewWithFormatString:string objects:objs completion:completeBlock];
+    });
+}
+
++ (STMAssembleView *)createViewWithFormatString:(NSString *)string objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock {
     //根据格式化字符串来
     NSScanner *scanner = [NSScanner scannerWithString:string];
     scanner.charactersToBeSkipped = [NSCharacterSet whitespaceAndNewlineCharacterSet]; //跳过换行和空格
@@ -231,11 +247,17 @@
         }
     }
     
-    
-    return [STMAssembleView createViewWithFormatArray:tokens objects:objs];
+    return [STMAssembleView createViewWithFormatArray:tokens objects:objs completion:completeBlock];
 }
-+ (STMAssembleView *)createViewWithFormatArray:(NSArray *)array objects:(NSDictionary *)objs {
+
++ (STMAssembleView *)createViewWithFormatArray:(NSArray *)array objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock {
     STMAssembleView *asView = [STMAssembleView createView:^(STMAssembleMaker *make) {
+        if (completeBlock) {
+            make.parsingCompletion = completeBlock;
+        } else {
+            make.parsingCompletion = nil;
+        }
+        
         NSMutableArray *asPropertyArray = [NSMutableArray array]; //asView的属性array
         NSMutableArray *partsArray = [NSMutableArray array]; //用来装所有partView的array的array，二级array
         NSMutableArray *partArray = [NSMutableArray array];  //单个partView的array
@@ -414,7 +436,7 @@
         
         //assemble view的情况就用递归完成
         if (asArray.count > 0) {
-            make.customViewEqualTo([STMAssembleView createViewWithFormatArray:asArray objects:objs]);
+            make.customViewEqualTo([STMAssembleView createViewWithFormatArray:asArray objects:objs completion:nil]);
         }
         
         //开始设置Part属性
