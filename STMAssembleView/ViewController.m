@@ -40,8 +40,6 @@
     //整体组装
     NSString *asStr = ASS(@"{vc(padding:20)[%@][%@(backColor:AAA0A3,radius:8,backBorderWidth:1,backBorderColor:E3DEE0,backPaddingHorizontal:80,backPaddingVertical:20,button:<clickBt>)][%@][%@(ignoreAlignment:top,isFill:1)]}",midStr,followBtStr,centerStr,desStr);
     
-//    self.asView = [STMAssembleView fs:asStr objects:asDic];
-    
     __weak typeof(self) weakSelf = self;
     [STMAssembleView fsAsync:asStr objects:asDic completion:^(STMAssembleView *asView) {
         [weakSelf.view addSubview:asView];
@@ -53,13 +51,6 @@
         }];
     }];
     
-//    [self.view addSubview:self.asView];
-//    [self.asView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.view).offset(30);
-//        make.left.equalTo(self.view).offset(20);
-//        make.right.equalTo(self.view).offset(-20);
-//        make.bottom.equalTo(self.view).offset(-20);
-//    }];
 }
 
 

@@ -208,9 +208,9 @@
         i++;
     }
     if (assembleMaker.parsingCompletion) {
-//        __weak typeof(self) weakSelf = self;
+        __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(),^{
-            assembleMaker.parsingCompletion(self);
+            assembleMaker.parsingCompletion(weakSelf);
         });
     }
     return self;
