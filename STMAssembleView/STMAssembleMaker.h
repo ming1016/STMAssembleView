@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, STMAssembleArrange) {
     STMAssembleArrangeVertical
 };
 
-typedef void(^ParsingFormatStringCompleteBlock)(STMAssembleView *);
+typedef void(^ParsingFormatStringCompleteBlock)(STMAssembleView *asView);
 
 @interface STMAssembleMaker : NSObject
 //属性

@@ -26,7 +26,6 @@
     assembleView.maker = [[STMAssembleMaker alloc] init];
     assembleMaker(assembleView.maker);
     assembleView = [assembleView buildAssembleView];
-    
     return assembleView;
 }
 - (STMAssembleView *)buildAssembleView{
@@ -47,7 +46,6 @@
         } else {
             xView = (UIView *)x;
         }
-             
         [self addSubview:xView];
         //设置权重
         if (partView.maker.CRpriority != STMPriorityDefault) {
@@ -208,10 +206,7 @@
         i++;
     }
     if (assembleMaker.parsingCompletion) {
-        __weak typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_main_queue(),^{
-            assembleMaker.parsingCompletion(weakSelf);
-        });
+        assembleMaker.parsingCompletion(self);
     }
     return self;
 }
@@ -222,7 +217,7 @@
 }
 
 + (void)fsAsync:(NSString *)string objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [STMAssembleView createViewWithFormatString:string objects:objs completion:completeBlock];
     });
 }
@@ -246,8 +241,16 @@
             }
         }
     }
+    if (completeBlock) {
+        dispatch_async(dispatch_get_main_queue(),^{
+            [STMAssembleView createViewWithFormatArray:tokens objects:objs completion:completeBlock];
+        });
+        return [[STMAssembleView alloc] init];
+    } else {
+        return [STMAssembleView createViewWithFormatArray:tokens objects:objs completion:completeBlock];
+    }
     
-    return [STMAssembleView createViewWithFormatArray:tokens objects:objs completion:completeBlock];
+    
 }
 
 + (STMAssembleView *)createViewWithFormatArray:(NSArray *)array objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock {
@@ -429,7 +432,6 @@
                     }
                 }
             }
-            
             
             i++;
         }
