@@ -14,6 +14,9 @@
 
 @property (nonatomic, strong) STMAssembleView *asView;
 
+@property (nonatomic, copy) NSString *asStr;
+@property (nonatomic, strong) NSDictionary *asDic;
+
 @end
 
 @implementation ViewController
@@ -24,7 +27,7 @@
     avatarImageView.clipsToBounds = YES;
     avatarImageView.layer.cornerRadius = 35/2;
     UIButton *clickBt = [UIButton new];
-    NSDictionary *asDic = @{
+    self.asDic = @{
                             @"avatarImageView":avatarImageView,
                             @"clickBt":clickBt
                             };
@@ -38,10 +41,10 @@
     //说明区域
     NSString *desStr = @"{hc(padding:5.5,extendWith:1)[(text:STMAssembleView.演示,color:E3DEE0,font:13)][(imageName:starmingicon,width:14,height:10,ignoreAlignment:left)][(text:www.starming.com星光社,color:E3DEE0,font:13)]}";
     //整体组装
-    NSString *asStr = ASS(@"{vc(padding:20)[%@][%@(backColor:AAA0A3,radius:8,backBorderWidth:1,backBorderColor:E3DEE0,backPaddingHorizontal:80,backPaddingVertical:20,button:<clickBt>)][%@][%@(ignoreAlignment:top,isFill:1)]}",midStr,followBtStr,centerStr,desStr);
+    self.asStr = ASS(@"{vc(padding:20)[%@][%@(backColor:AAA0A3,radius:8,backBorderWidth:1,backBorderColor:E3DEE0,backPaddingHorizontal:80,backPaddingVertical:20,button:<clickBt>)][%@][%@(ignoreAlignment:top,isFill:1)]}",midStr,followBtStr,centerStr,desStr);
     
     __weak typeof(self) weakSelf = self;
-    [STMAssembleView fsAsync:asStr objects:asDic completion:^(STMAssembleView *asView) {
+    [STMAssembleView fsAsync:self.asStr objects:self.asDic completion:^(STMAssembleView *asView) {
         [weakSelf.view addSubview:asView];
         [asView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(weakSelf.view).offset(30);
