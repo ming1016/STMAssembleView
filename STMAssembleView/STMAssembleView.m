@@ -217,8 +217,14 @@
 }
 
 + (void)fsAsync:(NSString *)string objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock{
+    __weak __typeof(string) weakString = string;
+    __weak __typeof(objs) weakObjs = objs;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [STMAssembleView createViewWithFormatString:string objects:objs completion:completeBlock];
+        __strong __typeof(weakString) strongString = weakString;
+        __strong __typeof(weakObjs) strongObjs = weakObjs;
+        if (strongString) {
+            [STMAssembleView createViewWithFormatString:strongString objects:strongObjs completion:completeBlock];
+        }
     });
 }
 
@@ -243,7 +249,13 @@
     }
     if (completeBlock) {
         dispatch_async(dispatch_get_main_queue(),^{
-            [STMAssembleView createViewWithFormatArray:tokens objects:objs completion:completeBlock];
+            NSArray *strongTokens = tokens;
+            NSDictionary *strongObjs = objs;
+            if ([strongTokens isKindOfClass:[NSArray class]]) {
+                if (strongTokens.count > 0) {
+                    [STMAssembleView createViewWithFormatArray:strongTokens objects:strongObjs completion:completeBlock];
+                }
+            }
         });
         return [[STMAssembleView alloc] init];
     } else {
