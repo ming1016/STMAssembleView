@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "daiming" => "daiming@didichuxing.com" }
   s.ios.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/ming1016/STMAssembleView.git", :tag => "v1.1" }
+  s.source       = { :git => "https://github.com/ming1016/STMAssembleView.git", :tag => "1.2" }
   s.source_files  = "Classes/**/*.{h,m}"
   s.requires_arc = true
 end
