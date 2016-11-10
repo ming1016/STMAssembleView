@@ -16,6 +16,8 @@
 
 @property (nonatomic, copy) NSString *asStr;
 @property (nonatomic, strong) NSDictionary *asDic;
+@property (nonatomic, strong) UIImageView *avatarImageView;
+@property (nonatomic, strong) UIButton *clickBt;
 
 @end
 
@@ -23,14 +25,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView *avatarImageView = [UIImageView new];
-    avatarImageView.clipsToBounds = YES;
-    avatarImageView.layer.cornerRadius = 35/2;
-    UIButton *clickBt = [UIButton new];
+    self.avatarImageView = [UIImageView new];
+    self.avatarImageView.clipsToBounds = YES;
+    self.avatarImageView.layer.cornerRadius = 35/2;
+    self.clickBt = [UIButton new];
+    
+    [self asyncMake];
+    
+    return;
+    
+    NSString *sentence = @"今天上班了，下午去喝咖啡。喝咖啡真是非常幸福的事情风和曰丽";
+    
+    CFStringRef string = (__bridge CFStringRef)sentence;
+    CFRange stringRange = CFRangeMake(0, [(__bridge NSString *)string length]) ;
+    CFStringTokenizerRef tokenizerRef = CFStringTokenizerCreate(NULL, //アロケーター
+                                                                string,                              //解析的文字
+                                                                stringRange,                         //解析的范围
+                                                                //kCFStringTokenizerUnitWord, //
+                                                                kCFStringTokenizerUnitWordBoundary,
+                                                                //kCFStringTokenizerUnitWord,//
+                                                                //kCFStringTokenizerUnitSentence,//
+                                                                //kCFStringTokenizerAttributeLanguage,
+                                                                //kCFStringTokenizerUnitWord,
+                                                                //kCFStringTokenizerUnitParagraph
+                                                                CFLocaleCopyCurrent()
+                                                                );
+    CFStringTokenizerAdvanceToNextToken(tokenizerRef);
+    //NSMutableDictionary
+    //遍历
+    while (1) {
+        CFRange r = CFStringTokenizerGetCurrentTokenRange(tokenizerRef);
+        if (r.location == kCFNotFound && r.length == 0){break;}
+        
+        NSString *token = [NSString stringWithString:
+                           [(__bridge NSString *)string substringWithRange: NSMakeRange(r.location, r.length)]];
+        if (token.length < 2) {
+            CFStringTokenizerAdvanceToNextToken(tokenizerRef);
+            continue;
+        }
+        //得到拼音
+        CFMutableStringRef mSpell = CFStringCreateMutableCopy(kCFAllocatorDefault, 0, (__bridge CFStringRef)token);
+        CFStringTransform(mSpell, nil, kCFStringTransformMandarinLatin, false);
+        CFStringTransform(mSpell, nil, kCFStringTransformStripDiacritics, false);
+        
+//        NSLog(@"(%@) 拼音 = %@",token,(__bridge NSString *)mSpell);
+        CFStringTokenizerAdvanceToNextToken(tokenizerRef);
+        
+    }
+    
+    CFRelease(tokenizerRef);
+    
+    
+    
+}
+
+//- (NSArray *)
+
+- (void)asyncMake {
     self.asDic = @{
-                            @"avatarImageView":avatarImageView,
-                            @"clickBt":clickBt
-                            };
+                   @"avatarImageView":self.avatarImageView,
+                   @"clickBt":self.clickBt
+                   };
     //排列居中
     NSString *sizeStr = @"width:25,height:18";
     NSString *centerStr = ASS(@"{hc(padding:30,extendWith:1)[(imageName:starmingicon,%@)][(imageName:starmingicon,%@)][(imageName:starmingicon,%@)]}",sizeStr,sizeStr,sizeStr);
@@ -53,7 +108,6 @@
             make.bottom.equalTo(weakSelf.view).offset(-20);
         }];
     }];
-    
 }
 
 

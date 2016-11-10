@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "STMAssembleMaker.h"
-//@class STMAssembleMaker;
 @class STMPartView;
 
 @interface STMAssembleView : UIView

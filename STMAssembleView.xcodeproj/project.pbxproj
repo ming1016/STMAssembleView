@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1C0B681DD4A94200465005 /* STMAssembleMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C0B611DD4A94200465005 /* STMAssembleMaker.m */; };
+		0A1C0B691DD4A94200465005 /* STMAssembleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C0B631DD4A94200465005 /* STMAssembleView.m */; };
+		0A1C0B6A1DD4A94200465005 /* STMPartMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C0B651DD4A94200465005 /* STMPartMaker.m */; };
+		0A1C0B6B1DD4A94200465005 /* STMPartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C0B671DD4A94200465005 /* STMPartView.m */; };
 		0A2FD1601D4074A900B2E6C4 /* as.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FD15B1D4074A900B2E6C4 /* as.png */; };
 		0A2FD1611D4074A900B2E6C4 /* center.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FD15C1D4074A900B2E6C4 /* center.png */; };
 		0A2FD1621D4074A900B2E6C4 /* des.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FD15D1D4074A900B2E6C4 /* des.png */; };
@@ -18,14 +22,19 @@
 		0A6B81501D3F951700D71B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6B814E1D3F951700D71B72 /* Main.storyboard */; };
 		0A6B81521D3F951700D71B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A6B81511D3F951700D71B72 /* Assets.xcassets */; };
 		0A6B81551D3F951700D71B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6B81531D3F951700D71B72 /* LaunchScreen.storyboard */; };
-		0A6B81651D3F983900D71B72 /* STMAssembleMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B815E1D3F983900D71B72 /* STMAssembleMaker.m */; };
-		0A6B81661D3F983900D71B72 /* STMAssembleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B81601D3F983900D71B72 /* STMAssembleView.m */; };
-		0A6B81671D3F983900D71B72 /* STMPartMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B81621D3F983900D71B72 /* STMPartMaker.m */; };
-		0A6B81681D3F983900D71B72 /* STMPartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B81641D3F983900D71B72 /* STMPartView.m */; };
+		0A7E4DCF1DAA4F4D0049713F /* asExample.asv in Resources */ = {isa = PBXBuildFile; fileRef = 0A7E4DCE1DAA4F4D0049713F /* asExample.asv */; };
 		C0E20BD7F7BE87B0F8DDB204 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A3506E929B33F2BB3AF5F3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1C0B601DD4A94200465005 /* STMAssembleMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMAssembleMaker.h; sourceTree = "<group>"; };
+		0A1C0B611DD4A94200465005 /* STMAssembleMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleMaker.m; sourceTree = "<group>"; };
+		0A1C0B621DD4A94200465005 /* STMAssembleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMAssembleView.h; sourceTree = "<group>"; };
+		0A1C0B631DD4A94200465005 /* STMAssembleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleView.m; sourceTree = "<group>"; };
+		0A1C0B641DD4A94200465005 /* STMPartMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMPartMaker.h; sourceTree = "<group>"; };
+		0A1C0B651DD4A94200465005 /* STMPartMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMPartMaker.m; sourceTree = "<group>"; };
+		0A1C0B661DD4A94200465005 /* STMPartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMPartView.h; sourceTree = "<group>"; };
+		0A1C0B671DD4A94200465005 /* STMPartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMPartView.m; sourceTree = "<group>"; };
 		0A2FD15B1D4074A900B2E6C4 /* as.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as.png; sourceTree = "<group>"; };
 		0A2FD15C1D4074A900B2E6C4 /* center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = center.png; sourceTree = "<group>"; };
 		0A2FD15D1D4074A900B2E6C4 /* des.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = des.png; sourceTree = "<group>"; };
@@ -41,14 +50,7 @@
 		0A6B81511D3F951700D71B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A6B81541D3F951700D71B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A6B81561D3F951700D71B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A6B815D1D3F983900D71B72 /* STMAssembleMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMAssembleMaker.h; sourceTree = "<group>"; };
-		0A6B815E1D3F983900D71B72 /* STMAssembleMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleMaker.m; sourceTree = "<group>"; };
-		0A6B815F1D3F983900D71B72 /* STMAssembleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMAssembleView.h; sourceTree = "<group>"; };
-		0A6B81601D3F983900D71B72 /* STMAssembleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleView.m; sourceTree = "<group>"; };
-		0A6B81611D3F983900D71B72 /* STMPartMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMPartMaker.h; sourceTree = "<group>"; };
-		0A6B81621D3F983900D71B72 /* STMPartMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMPartMaker.m; sourceTree = "<group>"; };
-		0A6B81631D3F983900D71B72 /* STMPartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMPartView.h; sourceTree = "<group>"; };
-		0A6B81641D3F983900D71B72 /* STMPartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMPartView.m; sourceTree = "<group>"; };
+		0A7E4DCE1DAA4F4D0049713F /* asExample.asv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = asExample.asv; sourceTree = "<group>"; };
 		31D84A63D1A76D3603A060A1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A3452471D6A996A0F18B5691 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D7A3506E929B33F2BB3AF5F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1C0B5F1DD4A85400465005 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0A1C0B601DD4A94200465005 /* STMAssembleMaker.h */,
+				0A1C0B611DD4A94200465005 /* STMAssembleMaker.m */,
+				0A1C0B621DD4A94200465005 /* STMAssembleView.h */,
+				0A1C0B631DD4A94200465005 /* STMAssembleView.m */,
+				0A1C0B641DD4A94200465005 /* STMPartMaker.h */,
+				0A1C0B651DD4A94200465005 /* STMPartMaker.m */,
+				0A1C0B661DD4A94200465005 /* STMPartView.h */,
+				0A1C0B671DD4A94200465005 /* STMPartView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		0A2FD15A1D40748600B2E6C4 /* ScreenShots */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +116,7 @@
 		0A6B81441D3F951700D71B72 /* STMAssembleView */ = {
 			isa = PBXGroup;
 			children = (
-				0A6B815C1D3F982A00D71B72 /* STMAssembleView */,
+				0A1C0B5F1DD4A85400465005 /* Classes */,
 				0A6B81481D3F951700D71B72 /* AppDelegate.h */,
 				0A6B81491D3F951700D71B72 /* AppDelegate.m */,
 				0A6B814B1D3F951700D71B72 /* ViewController.h */,
@@ -117,24 +134,10 @@
 		0A6B81451D3F951700D71B72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A7E4DCE1DAA4F4D0049713F /* asExample.asv */,
 				0A6B81461D3F951700D71B72 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0A6B815C1D3F982A00D71B72 /* STMAssembleView */ = {
-			isa = PBXGroup;
-			children = (
-				0A6B815D1D3F983900D71B72 /* STMAssembleMaker.h */,
-				0A6B815E1D3F983900D71B72 /* STMAssembleMaker.m */,
-				0A6B815F1D3F983900D71B72 /* STMAssembleView.h */,
-				0A6B81601D3F983900D71B72 /* STMAssembleView.m */,
-				0A6B81611D3F983900D71B72 /* STMPartMaker.h */,
-				0A6B81621D3F983900D71B72 /* STMPartMaker.m */,
-				0A6B81631D3F983900D71B72 /* STMPartView.h */,
-				0A6B81641D3F983900D71B72 /* STMPartView.m */,
-			);
-			name = STMAssembleView;
 			sourceTree = "<group>";
 		};
 		F6E3E429198F40B5E35EB972 /* Frameworks */ = {
@@ -218,6 +221,7 @@
 				0A2FD1631D4074A900B2E6C4 /* followBt.png in Resources */,
 				0A6B81551D3F951700D71B72 /* LaunchScreen.storyboard in Resources */,
 				0A2FD1601D4074A900B2E6C4 /* as.png in Resources */,
+				0A7E4DCF1DAA4F4D0049713F /* asExample.asv in Resources */,
 				0A2FD1641D4074A900B2E6C4 /* mid.png in Resources */,
 				0A6B81521D3F951700D71B72 /* Assets.xcassets in Resources */,
 				0A2FD1611D4074A900B2E6C4 /* center.png in Resources */,
@@ -280,11 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6B81681D3F983900D71B72 /* STMPartView.m in Sources */,
-				0A6B81671D3F983900D71B72 /* STMPartMaker.m in Sources */,
+				0A1C0B6A1DD4A94200465005 /* STMPartMaker.m in Sources */,
+				0A1C0B691DD4A94200465005 /* STMAssembleView.m in Sources */,
 				0A6B814D1D3F951700D71B72 /* ViewController.m in Sources */,
-				0A6B81651D3F983900D71B72 /* STMAssembleMaker.m in Sources */,
-				0A6B81661D3F983900D71B72 /* STMAssembleView.m in Sources */,
+				0A1C0B6B1DD4A94200465005 /* STMPartView.m in Sources */,
+				0A1C0B681DD4A94200465005 /* STMAssembleMaker.m in Sources */,
 				0A6B814A1D3F951700D71B72 /* AppDelegate.m in Sources */,
 				0A6B81471D3F951700D71B72 /* main.m in Sources */,
 			);

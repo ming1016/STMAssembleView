@@ -219,7 +219,7 @@
 + (void)fsAsync:(NSString *)string objects:(NSDictionary *)objs completion:(ParsingFormatStringCompleteBlock)completeBlock{
     __weak __typeof(string) weakString = string;
     __weak __typeof(objs) weakObjs = objs;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         __strong __typeof(weakString) strongString = weakString;
         __strong __typeof(weakObjs) strongObjs = weakObjs;
         if (strongString) {
