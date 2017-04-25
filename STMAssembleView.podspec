@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.license      = "MIT"
 
-  s.author       = { "daiming" => "daiming@didichuxing.com" }
+  s.author       = { "ming1016" => "ming1016@foxmail.com" }
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/ming1016/STMAssembleView.git", :tag => "1.2" }
   s.source_files  = "Classes/**/*.{h,m}"
